@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* body {
+  font-family: "IBM Plex Mono", monospace;
+} */
+[data-theme="halloween"] .react-split__sash.react-split__sash--vertical {
+  @apply border-black border-r-4;
+}
+
+[data-theme="wireframe"] .react-split__sash.react-split__sash--vertical {
+  @apply border-gray-200 border-r-4;
+}
+
+[data-theme="halloween"] .react-split__sash.react-split__sash--horizontal {
+  @apply border-black border-b-4;
+}
+
+[data-theme="wireframe"] .react-split__sash.react-split__sash--horizontal {
+  @apply border-gray-200 border-b-4;
+}
+
+::-webkit-scrollbar {
+  @apply w-2 h-0;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded-sm;
+}
+
+
