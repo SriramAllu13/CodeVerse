@@ -17,7 +17,7 @@ const WebContent = (props) => {
         }`}
       >
         <div
-          className={`flex justify-start items-center p-4 gap-1 ${
+          className={`flex justify-start items-center p-2 md:p-4 gap-1 ${
             theme === "wireframe" ? "text-black" : "text-white"
           }`}
         >

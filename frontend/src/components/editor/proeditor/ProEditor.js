@@ -195,7 +195,7 @@ const ProgrammingEditor = () => {
         <div className="flex justify-between items-center ml-1 mr-1 lg:ml-4 lg:mr-4 h-12">
           <div className="dropdown dropdown-hover w-30 ">
             <button
-              className="btn btn-ghost text-base w-44 lg:w-48 "
+              className="btn btn-ghost text-base w-42 lg:w-48 "
               onClick={() => handleLanguageSelect(selectedLanguage)}
             >
               {LANGUAGE_ICONS[selectedLanguage]} &nbsp; {selectedLanguage}{" "}
@@ -215,7 +215,7 @@ const ProgrammingEditor = () => {
           <div>
             <button
               onClick={handleOutput}
-              className=" mr-5 lg:mr-12  text-base btn btn-ghost"
+              className=" mr-0 lg:mr-12  text-base btn btn-ghost"
             >
               Output
             </button>
