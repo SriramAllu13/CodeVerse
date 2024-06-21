@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import SplitPane, { Pane } from "split-pane-react";
 import "split-pane-react/esm/themes/default.css";
 import ProgrammingContent from "./ProContent";
@@ -20,10 +20,11 @@ const ProgrammingEditor = () => {
     "python"
   );
   const [sizes, setSizes] = useState(["50%", "50%", "0.2%"]);
+  const [Smsizes, SmsetSizes] = useState(["100%", "0%", "0%"]);
   const [outputClickCount, setOutputClickCount] = useState(1);
   const [output, setOutput] = useState(null);
   const [AIcount, setAIcount] = useState(1);
-
+  const [SmAIcount, SmsetAIcount] = useState(1);
   const [input, setInput] = useState("");
   const [response, setResponse] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -32,8 +33,6 @@ const ProgrammingEditor = () => {
   const [theme, setTheme] = useState("halloween");
   const [CodeLoading, setCodeLoading] = useState(false);
   const [isError, setisError] = useState(false);
-  // eslint-disable-next-line
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   const handleLanguageSelect = (language) => {
     setSelectedLanguage(language);
@@ -123,6 +122,14 @@ const ProgrammingEditor = () => {
     }
     setOutputClickCount(outputClickCount + 1);
   };
+  const SmhandleOutput = () => {
+    if (outputClickCount % 2 === 0) {
+      SmsetSizes(["100%", "0%", "0%"]);
+    } else {
+      SmsetSizes(["0%", "100%", "0%"]);
+    }
+    setOutputClickCount(outputClickCount + 1);
+  };
 
   const handleAI = () => {
     if (AIcount % 2 === 0) {
@@ -131,6 +138,14 @@ const ProgrammingEditor = () => {
       setSizes(["25%", "0%", "75%"]);
     }
     setAIcount(AIcount + 1);
+  };
+  const SmhandleAI = () => {
+    if (SmAIcount % 2 === 0) {
+      SmsetSizes(["100%", "0%", "0%"]);
+    } else {
+      SmsetSizes(["0%", "0%", "100%"]);
+    }
+    SmsetAIcount(SmAIcount + 1);
   };
 
   const handlePromptInput = async () => {
@@ -181,23 +196,6 @@ const ProgrammingEditor = () => {
       prevTheme === "halloween" ? "wireframe" : "halloween"
     );
   };
-  const handleResize = () => {
-    if (window.innerWidth <= 768) {
-      setIsSmallScreen(true);
-      setSizes(["100%", "0%", "0%"]);
-    } else {
-      setIsSmallScreen(false);
-      setSizes(["50%", "50%", "0.2%"]);
-    }
-  };
-
-  useEffect(() => {
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <>
@@ -211,6 +209,7 @@ const ProgrammingEditor = () => {
           onhandleAI={handleAI}
           onToggleTheme={toggleTheme}
           theme={theme}
+          SmhandleAI={SmhandleAI}
         />
         <div className="flex justify-between items-center ml-1 mr-1 lg:ml-4 lg:mr-4 h-12">
           <div className="dropdown dropdown-hover w-30 ">
@@ -235,7 +234,13 @@ const ProgrammingEditor = () => {
           <div>
             <button
               onClick={handleOutput}
-              className=" mr-0 lg:mr-12  text-base btn btn-ghost"
+              className=" mr-0 lg:mr-12  text-base btn btn-ghost hidden md:flex"
+            >
+              Output
+            </button>
+            <button
+              onClick={SmhandleOutput}
+              className=" mr-0 lg:mr-12  text-base btn btn-ghost md:hidden"
             >
               Output
             </button>
@@ -253,7 +258,103 @@ const ProgrammingEditor = () => {
           </div>
         </div>
         <div className="flex-grow">
-          <SplitPane split="vertical" sizes={sizes} onChange={setSizes}>
+          <SplitPane
+            split="vertical"
+            sizes={sizes}
+            onChange={setSizes}
+            className="hidden md:flex"
+          >
+            <Pane minSize={"50%"} maxSize="95%">
+              <div
+                className={`h-full ${
+                  theme === "wireframe" ? "" : "border border-black"
+                }`}
+              >
+                <ProgrammingContent
+                  selectedLanguage={selectedLanguage}
+                  value={value}
+                  setValue={setValue}
+                  handleLanguageSelect={handleLanguageSelect}
+                  theme={theme}
+                  options={{
+                    language: { selectedLanguage },
+                  }}
+                />
+              </div>
+            </Pane>
+            <Pane minSize={"5%"} maxSize="95%">
+              <div
+                className={`${
+                  theme === "wireframe"
+                    ? "bg-botnav-gradient-light"
+                    : "bg-output-gradient-dark border border-black"
+                } h-full p-8 ${isError ? "text-red-500" : ""} `}
+              >
+                {output ? (
+                  output.map((line, i) => <p key={i}>{line}</p>)
+                ) : (
+                  <div className=" flex flex-col gap-2 ">
+                    {awaitingInput ? (
+                      <p>Enter the Inputs:</p>
+                    ) : (
+                      <p>Click RunCode to Execute...</p>
+                    )}
+                    {awaitingInput && (
+                      <div className="flex flex-col gap-2 items-center">
+                        {inputFields.map((field, index) => (
+                          <input
+                            key={index}
+                            className="input input-bordered input-sm w-44"
+                            type="text"
+                            placeholder="Enter Input..."
+                            onKeyPress={handleInputEnterKeyPress}
+                            value={inputFields[index]}
+                            onChange={(e) => {
+                              const newInputFields = [...inputFields];
+                              newInputFields[index] = e.target.value;
+                              setInputFields(newInputFields);
+                            }}
+                          />
+                        ))}
+                        <button
+                          onClick={handleInputSubmit}
+                          className="btn btn-ghost text-base"
+                        >
+                          Submit Input
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
+            </Pane>
+            <Pane minSize={"5%"} maxSize="95%">
+              <div
+                className={`${
+                  theme === "wireframe"
+                    ? "bg-ai-gradient-light  text-black"
+                    : "bg-ai-gradient-dark  text-white"
+                } h-full`}
+              >
+                <AIComponent
+                  handleAI={handleAI}
+                  handlePromptInput={handlePromptInput}
+                  input={input}
+                  setInput={setInput}
+                  handleEnterKeyPress={handleEnterKeyPress}
+                  response={response}
+                  isLoading={isLoading}
+                  theme={theme}
+                />
+              </div>
+            </Pane>
+          </SplitPane>
+          <SplitPane
+            split="vertical"
+            sizes={Smsizes}
+            onChange={setSizes}
+            className="md:hidden"
+          >
             <Pane minSize={"50%"} maxSize="95%">
               <div
                 className={`h-full ${

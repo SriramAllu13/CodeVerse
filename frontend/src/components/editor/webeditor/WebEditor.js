@@ -18,6 +18,12 @@ const WebEditor = () => {
     "33.3%",
     "0%",
   ]);
+  const [SmverticalSizes, SmsetVerticalSizes] = useState([
+    "100%",
+    "0%",
+    "0%",
+    "0%",
+  ]);
   const [Html, setHtml] = useLocalStorage("Html", "");
   const [Css, setCss] = useLocalStorage("Css", "");
   const [Js, setJs] = useLocalStorage("Js", "");
@@ -29,13 +35,11 @@ const WebEditor = () => {
   const [SmJsCount, setSmJsCount] = useState(1);
   const [OutputCount, setOutputCount] = useState(1);
   const [AIcount, setAIcount] = useState(1);
-
+  const [SmAIcount, SmsetAIcount] = useState(1);
   const [input, setInput] = useState("");
   const [response, setResponse] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [theme, setTheme] = useState("halloween");
-  // eslint-disable-next-line
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -61,9 +65,9 @@ const WebEditor = () => {
   };
   const handleSmJS = () => {
     if (SmJsCount % 2 === 0) {
-      setVerticalSizes(["33.33%", "33.33%", "33.33%", "0%"]);
+      SmsetVerticalSizes(["33.33%", "33.33%", "33.33%", "0%"]);
     } else {
-      setVerticalSizes(["0%", "0%", "100%", "0%"]);
+      SmsetVerticalSizes(["0%", "0%", "100%", "0%"]);
     }
     setSmJsCount(SmJsCount + 1);
   };
@@ -79,9 +83,9 @@ const WebEditor = () => {
 
   const handleSmCss = () => {
     if (SmCssCount % 2 === 0) {
-      setVerticalSizes(["33.3%", "33.3%", "33.3%", "0%"]);
+      SmsetVerticalSizes(["33.3%", "33.3%", "33.3%", "0%"]);
     } else {
-      setVerticalSizes(["0%", "100%", "0%", "0%"]);
+      SmsetVerticalSizes(["0%", "100%", "0%", "0%"]);
     }
     setSmCssCount(SmCssCount + 1);
   };
@@ -91,6 +95,14 @@ const WebEditor = () => {
       setVerticalSizes(["33.3%", "33.3%", "33.3%", "0%"]);
     } else {
       setVerticalSizes(["100%", "0%", "0%", "0%"]);
+    }
+    setHtmlCount(HtmlCount + 1);
+  };
+  const SmhandleHtml = () => {
+    if (HtmlCount % 2 === 0) {
+      SmsetVerticalSizes(["33.3%", "33.3%", "33.3%", "0%"]);
+    } else {
+      SmsetVerticalSizes(["100%", "0%", "0%", "0%"]);
     }
     setHtmlCount(HtmlCount + 1);
   };
@@ -111,7 +123,14 @@ const WebEditor = () => {
     }
     setAIcount(AIcount + 1);
   };
-
+  const SmhandleAI = () => {
+    if (SmAIcount % 2 === 0) {
+      SmsetVerticalSizes(["33.3%", "33.3%", "33.3%", "0%"]);
+    } else {
+      SmsetVerticalSizes(["0%", "0%", "0%", "100%"]);
+    }
+    SmsetAIcount(SmAIcount + 1);
+  };
   const handlePromptInput = async () => {
     setIsLoading(true);
     try {
@@ -192,23 +211,6 @@ const WebEditor = () => {
       prevTheme === "halloween" ? "wireframe" : "halloween"
     );
   };
-  const handleResize = () => {
-    if (window.innerWidth <= 768) {
-      setIsSmallScreen(true);
-      setVerticalSizes(["100%", "0%", "0%", "0%"]);
-    } else {
-      setIsSmallScreen(false);
-      setVerticalSizes(["33.3%", "33.3%", "33.3%", "0%"]);
-    }
-  };
-
-  useEffect(() => {
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <>
@@ -217,13 +219,23 @@ const WebEditor = () => {
           onhandleAI={handleAI}
           onToggleTheme={toggleTheme}
           theme={theme}
+          SmhandleAI={SmhandleAI}
         />
         <div
           className={` ${
             theme === "wireframe" ? "bg-botnav-gradient-light" : ""
           } flex justify-between items-center ml-4 mr-4 h-12 `}
         >
-          <button className="btn btn-ghost text-base " onClick={handleHtml}>
+          <button
+            className="btn btn-ghost text-base hidden lg:block"
+            onClick={handleHtml}
+          >
+            HTML
+          </button>
+          <button
+            className="btn btn-ghost text-base lg:hidden"
+            onClick={SmhandleHtml}
+          >
             HTML
           </button>
           <button
@@ -269,6 +281,75 @@ const WebEditor = () => {
                 split="vertical"
                 sizes={verticalSizes}
                 onChange={setVerticalSizes}
+                className="hidden md:flex"
+              >
+                <Pane minSize={"6%"} maxSize="95%">
+                  <div className="text-white h-full">
+                    <WebContent
+                      extension="html"
+                      displayName="HTML"
+                      Logo={<FaHtml5 size={20} className="text-red-600" />}
+                      value={Html}
+                      onChange={setHtml}
+                      theme={theme}
+                    />
+                  </div>
+                </Pane>
+                <Pane minSize={"5%"} maxSize="95%">
+                  <div className="text-white h-full">
+                    <WebContent
+                      extension="css"
+                      displayName="CSS"
+                      Logo={<FaCss3 size={20} className="text-sky-500" />}
+                      value={Css}
+                      onChange={setCss}
+                      theme={theme}
+                    />
+                  </div>
+                </Pane>
+                <Pane minSize={"5%"} maxSize="95%">
+                  <div className="text-white h-full">
+                    <WebContent
+                      extension="javascript"
+                      displayName="JavaScript"
+                      Logo={
+                        <RiJavascriptFill
+                          size={20}
+                          className="text-yellow-400"
+                        />
+                      }
+                      value={Js}
+                      onChange={setJs}
+                      theme={theme}
+                    />
+                  </div>
+                </Pane>
+                <Pane minSize={"5%"} maxSize="95%">
+                  <div
+                    className={`${
+                      theme === "wireframe"
+                        ? "bg-ai-gradient-light text-black"
+                        : "bg-ai-gradient-dark  text-white"
+                    } h-full`}
+                  >
+                    <AIComponent
+                      handleAI={handleAI}
+                      handlePromptInput={handlePromptInput}
+                      input={input}
+                      setInput={setInput}
+                      handleEnterKeyPress={handleEnterKeyPress}
+                      response={response}
+                      isLoading={isLoading}
+                      theme={theme}
+                    />
+                  </div>
+                </Pane>
+              </SplitPane>
+              <SplitPane
+                split="vertical"
+                sizes={SmverticalSizes}
+                onChange={SmsetVerticalSizes}
+                className="md:hidden"
               >
                 <Pane minSize={"6%"} maxSize="95%">
                   <div className="text-white h-full">

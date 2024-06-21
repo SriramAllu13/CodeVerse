@@ -3,7 +3,7 @@ import { BsBracesAsterisk } from "react-icons/bs";
 import { SiGooglegemini } from "react-icons/si";
 import { HiMenu } from "react-icons/hi";
 
-const ProgrammingNav = ({ onhandleAI, onToggleTheme, theme}) => {
+const ProgrammingNav = ({ onhandleAI, onToggleTheme, theme, SmhandleAI }) => {
   return (
     <>
       <div
@@ -45,7 +45,7 @@ const ProgrammingNav = ({ onhandleAI, onToggleTheme, theme}) => {
               className="menu menu-lg dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <button onClick={onhandleAI}>AI</button>
+                <button onClick={SmhandleAI}>AI</button>
               </li>
               <li>
                 <Link to="/web-editor" className="text-lg">
@@ -53,7 +53,9 @@ const ProgrammingNav = ({ onhandleAI, onToggleTheme, theme}) => {
                 </Link>
               </li>
               <li>
-                <button onClick={onToggleTheme}>{theme==='wireframe'?'DarkMode':'LightMode'}</button>
+                <button onClick={onToggleTheme}>
+                  {theme === "wireframe" ? "DarkMode" : "LightMode"}
+                </button>
               </li>
             </ul>
           </div>
