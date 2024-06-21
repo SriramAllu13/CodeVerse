@@ -29,7 +29,7 @@ const WebEditor = () => {
   const [SmJsCount, setSmJsCount] = useState(1);
   const [OutputCount, setOutputCount] = useState(1);
   const [AIcount, setAIcount] = useState(1);
-  const [SmAIcount, SmsetAIcount] = useState(1);
+
   const [input, setInput] = useState("");
   const [response, setResponse] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -111,14 +111,7 @@ const WebEditor = () => {
     }
     setAIcount(AIcount + 1);
   };
-  const SmhandleAI = () => {
-    if (SmAIcount % 2 === 0) {
-      setVerticalSizes(["33.3%", "33.3%", "33.3%", "0%"]);
-    } else {
-      setVerticalSizes(["0%", "0%", "0%", "100%"]);
-    }
-    SmsetAIcount(SmAIcount + 1);
-  };
+
   const handlePromptInput = async () => {
     setIsLoading(true);
     try {
@@ -224,7 +217,6 @@ const WebEditor = () => {
           onhandleAI={handleAI}
           onToggleTheme={toggleTheme}
           theme={theme}
-          SmhandleAI={SmhandleAI}
         />
         <div
           className={` ${

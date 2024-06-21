@@ -17,13 +17,13 @@ const AIComponent = ({
     <>
       <div className="h-full flex flex-col">
         <div className="navbar flex items-center">
-          <div className="navbar-start flex-1 gap-2 md:gap-2 items-center ml-1 md:ml-4">
+          <div className="navbar-start flex-1 gap-2 md:gap-2 items-center ml-0 md:ml-4">
             <SiGooglegemini className="text-lg md:text-xl" />
             <p className="text-sm md:text-lg"> AI</p>
           </div>
-          <div className="navbar-center  ml-2 md:ml-0 lg:mr-16 gap-1 flex-2  ">
+          <div className="navbar-center  ml-1 md:ml-0 lg:mr-16 gap-1 flex-2  ">
             <input
-              className="input "
+              className="input w-36 md:w-60"
               type="text"
               name="input"
               placeholder="Enter Prompt..."
@@ -44,7 +44,7 @@ const AIComponent = ({
             <MdOutlineCloseFullscreen
               size={20}
               onClick={handleAI}
-              className=" cursor-pointer lg:mr-2 mr-5"
+              className=" cursor-pointer lg:mr-2 mr-1"
             />
           </div>
         </div>

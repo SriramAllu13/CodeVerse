@@ -23,7 +23,7 @@ const ProgrammingEditor = () => {
   const [outputClickCount, setOutputClickCount] = useState(1);
   const [output, setOutput] = useState(null);
   const [AIcount, setAIcount] = useState(1);
-  const [SmAIcount, SmsetAIcount] = useState(1);
+
   const [input, setInput] = useState("");
   const [response, setResponse] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -132,14 +132,6 @@ const ProgrammingEditor = () => {
     }
     setAIcount(AIcount + 1);
   };
-  const SmhandleAI = () => {
-    if (SmAIcount % 2 === 0) {
-      setSizes(["50%", "50%", "0.2%"]);
-    } else {
-      setSizes(["0%", "0%", "100%"]);
-    }
-    SmsetAIcount(SmAIcount + 1);
-  };
 
   const handlePromptInput = async () => {
     setIsLoading(true);
@@ -219,7 +211,6 @@ const ProgrammingEditor = () => {
           onhandleAI={handleAI}
           onToggleTheme={toggleTheme}
           theme={theme}
-          SmhandleAI={SmhandleAI}
         />
         <div className="flex justify-between items-center ml-1 mr-1 lg:ml-4 lg:mr-4 h-12">
           <div className="dropdown dropdown-hover w-30 ">

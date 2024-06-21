@@ -3,7 +3,7 @@ import { RiCodeSSlashFill } from "react-icons/ri";
 import { SiGooglegemini } from "react-icons/si";
 import { HiMenu } from "react-icons/hi";
 
-const WebNav = ({ onhandleAI, onToggleTheme, theme, SmhandleAI }) => {
+const WebNav = ({ onhandleAI, onToggleTheme, theme }) => {
   return (
     <>
       <div
@@ -45,7 +45,7 @@ const WebNav = ({ onhandleAI, onToggleTheme, theme, SmhandleAI }) => {
               className="menu menu-lg dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <button onClick={SmhandleAI}>AI</button>
+                <button onClick={onhandleAI}>AI</button>
               </li>
               <li>
                 <Link to="/programming-editor" className="text-lg">
@@ -53,7 +53,9 @@ const WebNav = ({ onhandleAI, onToggleTheme, theme, SmhandleAI }) => {
                 </Link>
               </li>
               <li>
-                <button onClick={onToggleTheme}>{theme==='wireframe'?'DarkMode':'LightMode'}</button>
+                <button onClick={onToggleTheme}>
+                  {theme === "wireframe" ? "DarkMode" : "LightMode"}
+                </button>
               </li>
             </ul>
           </div>
