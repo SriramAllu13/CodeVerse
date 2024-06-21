@@ -30,7 +30,7 @@ const HomeNav = ({ onToggleTheme, theme, scrollToTop }) => {
             </Link>
           </div>
           <div className="navbar-end lg:hidden mr-0">
-            <div className="dropdown dropdown-end">
+            <div className="dropdown dropdown-end z-50">
               <div tabIndex={0} role="button" className="btn btn-ghost">
                 <HiMenu size={40} />
               </div>
@@ -49,7 +49,9 @@ const HomeNav = ({ onToggleTheme, theme, scrollToTop }) => {
                   </Link>
                 </li>
                 <li>
-                  <button onClick={onToggleTheme}>LightMode</button>
+                  <button onClick={onToggleTheme}>
+                    {theme === "wireframe" ? "DarkMode" : "LightMode"}
+                  </button>
                 </li>
               </ul>
             </div>
@@ -109,7 +111,7 @@ const HomeNav = ({ onToggleTheme, theme, scrollToTop }) => {
                 A universe of coding seamlessly integrated with AI, featuring
                 two distinct editors.
               </p>
-              <div className="flex gap-5 justify-center">
+              <div className="flex gap-4 md:gap-5 justify-center">
                 <Link to="/web-editor">
                   <button class="cursor-pointer font-bold shadow-md hover:scale-[1.2] shadow-purple-400 rounded-full px-5 py-2 bg-gradient-to-bl from-purple-500 to-purple-800">
                     WebDev

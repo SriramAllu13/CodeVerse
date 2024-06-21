@@ -8,9 +8,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-/* body {
-  font-family: "IBM Plex Mono", monospace;
-} */
+body {
+  font-family: Chalkboard, comic sans ms, "sans-serif";
+}
 [data-theme="halloween"] .react-split__sash.react-split__sash--vertical {
   @apply border-black border-r-4;
 }
@@ -34,5 +34,3 @@
 ::-webkit-scrollbar-thumb {
   @apply bg-gray-400 rounded-sm;
 }
-
-

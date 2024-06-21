@@ -29,10 +29,13 @@ const WebEditor = () => {
   const [SmJsCount, setSmJsCount] = useState(1);
   const [OutputCount, setOutputCount] = useState(1);
   const [AIcount, setAIcount] = useState(1);
+  const [SmAIcount, SmsetAIcount] = useState(1);
   const [input, setInput] = useState("");
   const [response, setResponse] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [theme, setTheme] = useState("halloween");
+  // eslint-disable-next-line
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -96,7 +99,7 @@ const WebEditor = () => {
     if (OutputCount % 2 === 0) {
       setHorizontalSizes(["95%", "5%"]);
     } else {
-      setHorizontalSizes(["70%", "50%"]);
+      setHorizontalSizes(["60%", "50%"]);
     }
     setOutputCount(OutputCount + 1);
   };
@@ -107,6 +110,14 @@ const WebEditor = () => {
       setVerticalSizes(["10%", "10%", "10%", "70%"]);
     }
     setAIcount(AIcount + 1);
+  };
+  const SmhandleAI = () => {
+    if (SmAIcount % 2 === 0) {
+      setVerticalSizes(["33.3%", "33.3%", "33.3%", "0%"]);
+    } else {
+      setVerticalSizes(["0%", "0%", "0%", "100%"]);
+    }
+    SmsetAIcount(SmAIcount + 1);
   };
   const handlePromptInput = async () => {
     setIsLoading(true);
@@ -188,6 +199,23 @@ const WebEditor = () => {
       prevTheme === "halloween" ? "wireframe" : "halloween"
     );
   };
+  const handleResize = () => {
+    if (window.innerWidth <= 768) {
+      setIsSmallScreen(true);
+      setVerticalSizes(["100%", "0%", "0%", "0%"]);
+    } else {
+      setIsSmallScreen(false);
+      setVerticalSizes(["33.3%", "33.3%", "33.3%", "0%"]);
+    }
+  };
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
@@ -196,6 +224,7 @@ const WebEditor = () => {
           onhandleAI={handleAI}
           onToggleTheme={toggleTheme}
           theme={theme}
+          SmhandleAI={SmhandleAI}
         />
         <div
           className={` ${

@@ -111,13 +111,13 @@ const Home = () => {
               {theme === "wireframe" ? (
                 <img
                   src={webdev2}
-                  className="w-2/3 rounded-lg shadow-2xl"
+                  className="w-11/12 md:w-2/3 rounded-lg shadow-2xl"
                   alt=""
                 />
               ) : (
                 <img
                   src={webdev}
-                  className="w-2/3 rounded-lg shadow-2xl "
+                  className="w-11/12 md:w-2/3 rounded-lg shadow-2xl "
                   alt=""
                 />
               )}
@@ -177,11 +177,15 @@ const Home = () => {
               {theme === "wireframe" ? (
                 <img
                   src={pro2}
-                  className="w-2/3 rounded-lg shadow-2xl"
+                  className="w-11/12 md:w-2/3 rounded-lg shadow-2xl"
                   alt=""
                 />
               ) : (
-                <img src={pro} className="w-2/3 rounded-lg shadow-2xl" alt="" />
+                <img
+                  src={pro}
+                  className="w-11/12 md:w-2/3 rounded-lg shadow-2xl"
+                  alt=""
+                />
               )}
               <div className="text-center">
                 <h1 className=" text-3xl lg:text-4xl font-bold">Programming</h1>
@@ -228,7 +232,7 @@ const Home = () => {
               mousewheel={true}
               keyboard={true}
               modules={[Autoplay, Mousewheel, Keyboard]}
-              className="mySwiper w-2/3 mx-auto rounded-lg shadow-2xl mb-20"
+              className="mySwiper w-11/12 md:w-2/3 mx-auto rounded-lg shadow-2xl mb-20"
               ref={swiperRef}
             >
               {slideImagesDark.map((img, index) => (
@@ -245,7 +249,7 @@ const Home = () => {
               ))}
             </Swiper>
 
-            <div className="absolute flex justify-between items-center inset-0 mx-auto left-2 right-2">
+            <div className="absolute hidden md:flex justify-between items-center inset-0 mx-auto left-5 right-5">
               <button className="btn btn-circle " onClick={slidePrev}>
                 ❮
               </button>
@@ -271,12 +275,12 @@ const Home = () => {
           <div className="hero min-h-screen ">
             <div className="hero-content flex flex-col gap-10 text-center">
               <h1 className=" text-3xl lg:text-4xl font-bold">
-                Frequently Asked Questions
+                FAQs
               </h1>
               <div className=" w-full flex flex-col gap-2">
                 <div className="collapse  collapse-arrow bg-base-200">
                   <input type="radio" name="my-accordion-2" />
-                  <div className="collapse-title  text-lg md:text-xl font-medium">
+                  <div className="collapse-title  text-base md:text-xl font-medium">
                     Major Features of CodeVerse
                   </div>
                   <div className="collapse-content">
@@ -288,7 +292,7 @@ const Home = () => {
                 </div>
                 <div className="collapse collapse-arrow bg-base-200">
                   <input type="radio" name="my-accordion-2" />
-                  <div className="collapse-title text-lg md:text-xl font-medium">
+                  <div className="collapse-title text-base md:text-xl font-medium">
                     What are the Buttons - HTML CSS JavaScript?
                   </div>
                   <div className="collapse-content">
@@ -299,7 +303,7 @@ const Home = () => {
                 </div>
                 <div className="collapse collapse-arrow bg-base-200">
                   <input type="radio" name="my-accordion-2" />
-                  <div className="collapse-title text-lg md:text-xl font-medium">
+                  <div className="collapse-title text-base md:text-xl font-medium">
                     Unique Feature of CodeVerse
                   </div>
                   <div className="collapse-content ">
@@ -312,7 +316,7 @@ const Home = () => {
                 </div>
                 <div className="collapse  collapse-arrow bg-base-200">
                   <input type="radio" name="my-accordion-2" />
-                  <div className="collapse-title text-lg md:text-xl font-medium">
+                  <div className="collapse-title text-base md:text-xl font-medium">
                     Information Regarding AI
                   </div>
                   <div className="collapse-content">
@@ -324,7 +328,7 @@ const Home = () => {
                 </div>
                 <div className="collapse  collapse-arrow bg-base-200">
                   <input type="radio" name="my-accordion-2" />
-                  <div className="collapse-title text-lg md:text-xl font-medium">
+                  <div className="collapse-title text-base md:text-xl font-medium">
                     Usage Suggestions Regarding AI
                   </div>
                   <div className="collapse-content">
@@ -336,7 +340,7 @@ const Home = () => {
                 </div>
                 <div className="collapse  collapse-arrow bg-base-200">
                   <input type="radio" name="my-accordion-2" />
-                  <div className="collapse-title text-lg md:text-xl font-medium">
+                  <div className="collapse-title text-base md:text-xl font-medium">
                     Upcoming Features
                   </div>
                   <div className="collapse-content">
