@@ -216,7 +216,7 @@ const Home = () => {
             }}
           ></div>
 
-          <h1 className="text-4xl md:text-5xl text-white font-bold">
+          <h1 className="text-4xl md:text-5xl font-bold">
             Snapshots
           </h1>
 
