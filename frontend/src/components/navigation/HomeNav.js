@@ -20,7 +20,7 @@ const HomeNav = ({ onToggleTheme, theme, scrollToTop }) => {
             opacity: theme === "wireframe" ? "0.1" : "0.2",
           }}
         ></div>
-        <div className="navbar z-10 fixed top-0 right-0 left-0 w-full shadow-md transition-all duration-500 backdrop-blur ">
+        <div className="navbar z-50 fixed top-0 right-0 left-0 w-full shadow-md transition-all duration-500 backdrop-blur ">
           <div className="navbar-start ml-4 lg:ml-16">
             <Link to="/">
               <span className="text-2xl font-title font-bold flex gap-1 items-center">
@@ -103,8 +103,8 @@ const HomeNav = ({ onToggleTheme, theme, scrollToTop }) => {
             </label>
           </div>
         </div>
-        <div className="hero min-h-screen  ">
-          <div className="hero-content text-center z-50">
+        <div className="hero min-h-screen relative z-30">
+          <div className="hero-content text-center z-40">
             <div className="max-w-md mx-auto ">
               <h1 className="text-4xl font-bold mb-4 ">CodeVerse</h1>
               <p className="mb-6 text-lg">
