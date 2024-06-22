@@ -20,7 +20,7 @@ const HomeNav = ({ onToggleTheme, theme, scrollToTop }) => {
             opacity: theme === "wireframe" ? "0.1" : "0.2",
           }}
         ></div>
-        <div className="navbar z-10 fixed top-0 right-0 left-0 w-full bg-transparent shadow-md transition-all duration-500 backdrop-blur ">
+        <div className="navbar z-10 fixed top-0 right-0 left-0 w-full shadow-md transition-all duration-500 backdrop-blur ">
           <div className="navbar-start ml-4 lg:ml-16">
             <Link to="/">
               <span className="text-2xl font-title font-bold flex gap-1 items-center">
