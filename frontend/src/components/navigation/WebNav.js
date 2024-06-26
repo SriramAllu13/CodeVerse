@@ -13,12 +13,12 @@ const WebNav = ({ onhandleAI, onToggleTheme, theme, SmhandleAI }) => {
             : "bg-web-gradient-dark"
         } relative flex items-center`}
       >
-        <div className="navbar-start lg:hidden ml-4">
+        <div className="navbar-start md:hidden ml-4">
           <Link to="/">
             <RiCodeSSlashFill size={40} />
           </Link>
         </div>
-        <div className="navbar-start flex-1  items-center ml-4 hidden lg:flex">
+        <div className="navbar-start flex-1  items-center ml-4 hidden md:flex">
           <label className="label cursor-pointer gap-1">
             <span className="label-text text-lg flex items-center gap-1">
               AI <SiGooglegemini />
@@ -30,12 +30,12 @@ const WebNav = ({ onhandleAI, onToggleTheme, theme, SmhandleAI }) => {
             />
           </label>
         </div>
-        <div className="navbar-center flex-2 hidden lg:flex">
+        <div className="navbar-center flex-2 hidden md:flex">
           <Link to="/">
             <RiCodeSSlashFill size={40} />
           </Link>
         </div>
-        <div className="navbar-end lg:hidden mr-0">
+        <div className="navbar-end md:hidden mr-0">
           <div className="dropdown dropdown-end z-50">
             <div tabIndex={0} role="button" className="btn btn-ghost">
               <HiMenu size={40} />
@@ -60,7 +60,7 @@ const WebNav = ({ onhandleAI, onToggleTheme, theme, SmhandleAI }) => {
             </ul>
           </div>
         </div>
-        <div className="navbar-end flex-1 gap-52 mr-5 hidden lg:flex">
+        <div className="navbar-end flex-1 gap-20 lg:gap-52 mr-5 hidden md:flex">
           <Link to="/programming-editor" className="text-lg">
             Programming
           </Link>

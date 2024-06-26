@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ContactForm = () => {
+const ContactForm = ({theme}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -53,7 +53,9 @@ const ContactForm = () => {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className={`w-full px-3 py-2 border ${
+              theme === "wireframe" ? "border-black" : ""
+            }  rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
           />
         </div>
         <div>
@@ -68,12 +70,14 @@ const ContactForm = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className={`w-full px-3 py-2 border ${
+              theme === "wireframe" ? "border-black" : ""
+            }  rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
           />
         </div>
         <div>
           <label htmlFor="message" className="block text-lg font-medium">
-             Message
+            Message
           </label>
           <textarea
             id="message"
@@ -83,7 +87,9 @@ const ContactForm = () => {
             onChange={(e) => setMessage(e.target.value)}
             required
             rows={2}
-            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className={`w-full px-3 py-2 border ${
+              theme === "wireframe" ? "border-black" : ""
+            }  rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
           />
         </div>
         {status === "success" && (

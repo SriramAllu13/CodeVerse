@@ -20,8 +20,8 @@ const HomeNav = ({ onToggleTheme, theme, scrollToTop }) => {
             opacity: theme === "wireframe" ? "0.1" : "0.2",
           }}
         ></div>
-        <div className="navbar z-10 fixed top-0 right-0 left-0 w-full bg-transparent shadow-md transition-all duration-500 backdrop-blur ">
-          <div className="navbar-start ml-4 lg:ml-16">
+        <div className="navbar z-50 fixed top-0 right-0 left-0 w-full shadow-md transition-all duration-500 backdrop-blur ">
+          <div className="navbar-start ml-4 md:ml-16">
             <Link to="/">
               <span className="text-2xl font-title font-bold flex gap-1 items-center">
                 Code
@@ -29,7 +29,7 @@ const HomeNav = ({ onToggleTheme, theme, scrollToTop }) => {
               </span>
             </Link>
           </div>
-          <div className="navbar-end lg:hidden mr-0">
+          <div className="navbar-end md:hidden mr-0">
             <div className="dropdown dropdown-end z-50">
               <div tabIndex={0} role="button" className="btn btn-ghost">
                 <HiMenu size={40} />
@@ -56,7 +56,7 @@ const HomeNav = ({ onToggleTheme, theme, scrollToTop }) => {
               </ul>
             </div>
           </div>
-          <div className="navbar-end flex-0 text-lg hidden lg:flex  gap-16 mr-16">
+          <div className="navbar-end flex-0 text-lg hidden md:flex  gap-16 mr-16">
             <Link
               to="/"
               onClick={scrollToTop}
@@ -103,8 +103,8 @@ const HomeNav = ({ onToggleTheme, theme, scrollToTop }) => {
             </label>
           </div>
         </div>
-        <div className="hero min-h-screen  ">
-          <div className="hero-content text-center z-50">
+        <div className="hero min-h-screen relative z-30">
+          <div className="hero-content text-center z-40">
             <div className="max-w-md mx-auto ">
               <h1 className="text-4xl font-bold mb-4 ">CodeVerse</h1>
               <p className="mb-6 text-lg">

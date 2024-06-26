@@ -96,7 +96,7 @@ const Home = () => {
 
         <div
           className={`relative h-screen flex items-center justify-center  ${
-            theme === "wireframe" ? "" : " bg-black"
+            theme === "wireframe" ? "bg-white" : " bg-black"
           }`}
         >
           <div
@@ -139,7 +139,7 @@ const Home = () => {
         </div>
         <div
           className={`relative h-screen flex items-center justify-center ${
-            theme === "wireframe" ? "" : " bg-black"
+            theme === "wireframe" ? "bg-white" : " bg-black"
           }`}
         >
           <div className="hero h-full   ">
@@ -162,7 +162,7 @@ const Home = () => {
         </div>
         <div
           className={`relative h-screen flex items-center justify-center ${
-            theme === "wireframe" ? "" : " bg-black"
+            theme === "wireframe" ? "bg-white" : " bg-black"
           }`}
         >
           <div
@@ -204,8 +204,8 @@ const Home = () => {
           </div>
         </div>
         <div
-          className={`relative h-screen flex flex-col gap-14 items-center justify-center ${
-            theme === "wireframe" ? "" : " bg-black text-white"
+          className={`relative h-screen flex items-center justify-center ${
+            theme === "wireframe" ? "bg-white" : "bg-black"
           }`}
         >
           <div
@@ -216,11 +216,11 @@ const Home = () => {
             }}
           ></div>
 
-          <h1 className="text-4xl md:text-5xl text-white font-bold">
-            Snapshots
-          </h1>
+          <div className="carousel w-full relative flex flex-col items-center gap-10">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold ">Snapshots</h1>
+            </div>
 
-          <div className="carousel w-full relative">
             <Swiper
               spaceBetween={30}
               centeredSlides={true}
@@ -262,7 +262,7 @@ const Home = () => {
 
         <div
           className={`relative h-screen flex items-center justify-center ${
-            theme === "wireframe" ? "" : " bg-black"
+            theme === "wireframe" ? "bg-white" : " bg-black"
           }`}
         >
           <div
@@ -274,9 +274,7 @@ const Home = () => {
           ></div>
           <div className="hero min-h-screen ">
             <div className="hero-content flex flex-col gap-10 text-center">
-              <h1 className=" text-3xl lg:text-4xl font-bold">
-                FAQs
-              </h1>
+              <h1 className=" text-3xl lg:text-4xl font-bold">FAQs</h1>
               <div className=" w-full flex flex-col gap-2">
                 <div className="collapse  collapse-arrow bg-base-200">
                   <input type="radio" name="my-accordion-2" />
@@ -356,7 +354,7 @@ const Home = () => {
         </div>
         <div
           className={`relative h-screen flex items-center justify-center ${
-            theme === "wireframe" ? "" : " bg-black"
+            theme === "wireframe" ? "bg-white" : " bg-black"
           }`}
         >
           <div
@@ -368,7 +366,7 @@ const Home = () => {
           ></div>
           <div className="hero min-h-screen ">
             <div className="hero-content flex flex-col gap-20 text-center">
-              <ContactForm />
+              <ContactForm theme={theme}/>
             </div>
           </div>
         </div>

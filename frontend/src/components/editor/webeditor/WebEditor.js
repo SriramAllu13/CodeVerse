@@ -57,7 +57,7 @@ const WebEditor = () => {
 
   const handleJS = () => {
     if (JsCount % 2 === 0) {
-      setVerticalSizes(["80%", "10%", "10%", "0%"]);
+      setVerticalSizes(["100%", "0%", "0%", "0%"]);
     } else {
       setVerticalSizes(["33.33%", "33.33%", "33.33%", "0%"]);
     }
@@ -227,37 +227,37 @@ const WebEditor = () => {
           } flex justify-between items-center ml-4 mr-4 h-12 `}
         >
           <button
-            className="btn btn-ghost text-base hidden lg:block"
+            className="btn btn-ghost text-base hidden md:block"
             onClick={handleHtml}
           >
             HTML
           </button>
           <button
-            className="btn btn-ghost text-base lg:hidden"
+            className="btn btn-ghost text-base md:hidden"
             onClick={SmhandleHtml}
           >
             HTML
           </button>
           <button
-            className="btn btn-ghost text-base hidden lg:block"
+            className="btn btn-ghost text-base hidden md:block"
             onClick={handleCss}
           >
             CSS
           </button>
           <button
-            className="btn btn-ghost text-base lg:hidden"
+            className="btn btn-ghost text-base md:hidden"
             onClick={handleSmCss}
           >
             CSS
           </button>
           <button
-            className="btn btn-ghost text-base hidden lg:block"
+            className="btn btn-ghost text-base hidden md:block"
             onClick={handleJS}
           >
             JavaScript
           </button>
           <button
-            className="btn btn-ghost text-base lg:hidden "
+            className="btn btn-ghost text-base md:hidden "
             onClick={handleSmJS}
           >
             JavaScript

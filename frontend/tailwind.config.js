@@ -24,8 +24,9 @@ module.exports = {
       },
       fontFamily: {
         title: `"IBM Plex Mono", monospace`,
+        chalkboard: `Chalkboard, comic sans ms, "sans-serif"`,
+        sans: `"Noto Sans","Ubuntu"`,
       },
-      
     },
   },
   plugins: [require("daisyui")],
