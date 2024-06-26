@@ -21,7 +21,11 @@ const HomeNav = ({ onToggleTheme, theme, scrollToTop }) => {
           }}
         ></div>
         <div className="navbar z-50 fixed top-0 right-0 left-0 w-full shadow-md transition-all duration-500 backdrop-blur ">
+<<<<<<< HEAD
           <div className="navbar-start ml-4 md:ml-16">
+=======
+          <div className="navbar-start ml-4 lg:ml-16">
+>>>>>>> 9957257414e870adbe09945bb8869e05399f0e0f
             <Link to="/">
               <span className="text-2xl font-title font-bold flex gap-1 items-center">
                 Code

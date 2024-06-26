@@ -216,10 +216,16 @@ const Home = () => {
             }}
           ></div>
 
+<<<<<<< HEAD
           <div className="carousel w-full relative flex flex-col items-center gap-10">
             <div>
               <h1 className="text-4xl md:text-5xl font-bold ">Snapshots</h1>
             </div>
+=======
+          <h1 className="text-4xl md:text-5xl font-bold">
+            Snapshots
+          </h1>
+>>>>>>> 9957257414e870adbe09945bb8869e05399f0e0f
 
             <Swiper
               spaceBetween={30}
