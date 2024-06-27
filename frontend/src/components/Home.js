@@ -154,7 +154,7 @@ const Home = () => {
                 <p className="py-6 text-base lg:text-lg px-6">
                   Integrated with Gemini AI, our editors offer unparalleled
                   efficiency and effectiveness, setting a new standard for
-                  coding environments
+                  coding environments.
                 </p>
               </div>
             </div>
