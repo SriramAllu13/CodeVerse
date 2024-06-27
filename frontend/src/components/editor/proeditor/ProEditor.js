@@ -219,7 +219,7 @@ const ProgrammingEditor = () => {
             >
               {LANGUAGE_ICONS[selectedLanguage]}&nbsp;{selectedLanguage}&nbsp; ▼
             </button>
-            <ul className="dropdown-content z-[1] menu p-1 md:p-2 shadow bg-base-100 rounded-box w-50 lg:w-52">
+            <ul className="dropdown-content z-[1] menu  p-2 shadow bg-base-100 rounded-box w-50 lg:w-52">
               {Object.entries(LANGUAGE_VERSIONS).map(([language, version]) => (
                 <li key={language}>
                   <button onClick={() => handleLanguageSelect(language)}>

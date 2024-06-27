@@ -95,7 +95,7 @@ const Home = () => {
         />
 
         <div
-          className={`relative h-screen flex items-center justify-center  ${
+          className={`relative h-screen flex items-center justify-center ${
             theme === "wireframe" ? "bg-white" : " bg-black"
           }`}
         >
@@ -106,8 +106,8 @@ const Home = () => {
               opacity: 0.5,
             }}
           ></div>
-          <div className="hero min-h-screen my-4">
-            <div className="hero-content  flex-col lg:flex-row-reverse">
+          <div className="hero min-h-screen my-10">
+            <div className="hero-content  flex-col lg:flex-row-reverse ">
               {theme === "wireframe" ? (
                 <img
                   src={webdev2}
@@ -121,7 +121,7 @@ const Home = () => {
                   alt=""
                 />
               )}
-              <div className="text-center my-4 ">
+              <div className="text-center">
                 <h1 className="text-3xl md:text-4xl font-bold">WebDev</h1>
                 <p className="py-6 text-base md:text-lg">
                   An Editor Comprises of HTML CSS JavaScript Integration with
@@ -142,8 +142,8 @@ const Home = () => {
             theme === "wireframe" ? "bg-white" : " bg-black"
           }`}
         >
-          <div className="hero h-full   ">
-            <div className="hero-content text-center m-4 ">
+          <div className="hero h-full my-10  ">
+            <div className="hero-content text-center">
               <div className="max-w-md">
                 <h1 className=" text-3xl lg:text-4xl text-center flex justify-center gap-3 font-bold ">
                   Gemini AI
@@ -154,7 +154,7 @@ const Home = () => {
                 <p className="py-6 text-base lg:text-lg px-6">
                   Integrated with Gemini AI, our editors offer unparalleled
                   efficiency and effectiveness, setting a new standard for
-                  coding environments.
+                  coding environments
                 </p>
               </div>
             </div>
@@ -172,7 +172,7 @@ const Home = () => {
               opacity: 0.5,
             }}
           ></div>
-          <div className="hero min-h-screen">
+          <div className="hero min-h-screen my-10">
             <div className="hero-content  flex-col lg:flex-row">
               {theme === "wireframe" ? (
                 <img
@@ -187,7 +187,7 @@ const Home = () => {
                   alt=""
                 />
               )}
-              <div className="text-center my-4">
+              <div className="text-center">
                 <h1 className=" text-3xl lg:text-4xl font-bold">Programming</h1>
                 <p className="py-6 text-base lg:text-lg ">
                   An editor comprises of various programming languages with AI
@@ -204,7 +204,7 @@ const Home = () => {
           </div>
         </div>
         <div
-          className={`relative h-screen flex items-center justify-center ${
+          className={`relative h-screen flex items-center justify-center  ${
             theme === "wireframe" ? "bg-white" : "bg-black"
           }`}
         >
@@ -216,9 +216,9 @@ const Home = () => {
             }}
           ></div>
 
-          <div className="carousel w-full relative flex flex-col items-center gap-10">
+          <div className="carousel w-full relative flex flex-col items-center my-10 gap-10">
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold m-4 ">Snapshots</h1>
+              <h1 className="text-4xl md:text-5xl font-bold ">Snapshots</h1>
             </div>
             <Swiper
               spaceBetween={30}
@@ -271,8 +271,8 @@ const Home = () => {
               opacity: 0.7,
             }}
           ></div>
-          <div className="hero min-h-screen  ">
-            <div className="hero-content flex flex-col gap-10 m-4 text-center">
+          <div className="hero min-h-screen my-96">
+            <div className="hero-content flex flex-col gap-10 text-center">
               <h1 className=" text-3xl lg:text-4xl font-bold">FAQs</h1>
               <div className=" w-full flex flex-col gap-2">
                 <div className="collapse  collapse-arrow bg-base-200">
@@ -363,8 +363,8 @@ const Home = () => {
               opacity: 0.7,
             }}
           ></div>
-          <div className="hero min-h-screen ">
-            <div className="hero-content flex flex-col m-4 gap-20 text-center">
+          <div className="hero min-h-screen my-96">
+            <div className="hero-content flex flex-col gap-20 text-center">
               <ContactForm theme={theme} />
             </div>
           </div>
