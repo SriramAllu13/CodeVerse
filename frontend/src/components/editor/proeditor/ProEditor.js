@@ -211,13 +211,13 @@ const ProgrammingEditor = () => {
           theme={theme}
           SmhandleAI={SmhandleAI}
         />
-        <div className="flex justify-between items-center  ml-1 mr-1 lg:ml-4 lg:mr-4 h-14 md:h-12">
+        <div className="flex justify-between items-center  ml-0 mr-0 lg:ml-4 lg:mr-4 h-14 md:h-12">
           <div className="dropdown dropdown-hover w-30 ">
             <button
-              className="btn btn-ghost text-base w-42 lg:w-48 "
+              className="btn btn-ghost text-sm sm:text-base w-32 sm:w-48 "
               onClick={() => handleLanguageSelect(selectedLanguage)}
             >
-              {LANGUAGE_ICONS[selectedLanguage]}&nbsp;{selectedLanguage}&nbsp; ▼
+              {LANGUAGE_ICONS[selectedLanguage]}&nbsp;{selectedLanguage}&nbsp;▼
             </button>
             <ul className="dropdown-content z-[1] menu  p-2 shadow bg-base-100 rounded-box w-50 lg:w-52">
               {Object.entries(LANGUAGE_VERSIONS).map(([language, version]) => (
@@ -239,7 +239,7 @@ const ProgrammingEditor = () => {
             </button>
             <button
               onClick={SmhandleOutput}
-              className=" mr-0  text-base btn btn-ghost md:hidden"
+              className=" mr-0  text-sm sm:text-base btn btn-ghost md:hidden"
             >
               Output
             </button>
@@ -247,10 +247,10 @@ const ProgrammingEditor = () => {
           <div>
             <button
               onClick={prepareForExecution}
-              className="btn btn-ghost text-base"
+              className="btn btn-ghost  text-sm sm:text-base"
             >
               {CodeLoading && (
-                <span className="loading loading-spinner ml-0 md:ml-2"></span>
+                <span className="loading loading-spinner  ml-0 md:ml-2"></span>
               )}
               RunCode
             </button>
