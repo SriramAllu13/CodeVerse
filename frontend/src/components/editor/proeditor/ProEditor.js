@@ -211,7 +211,7 @@ const ProgrammingEditor = () => {
           theme={theme}
           SmhandleAI={SmhandleAI}
         />
-        <div className="flex justify-between items-center  ml-0 mr-0 lg:ml-4 lg:mr-4 h-14 md:h-12">
+        <div className="flex justify-between items-center  ml-0 mr-0 lg:ml-4 lg:mr-4 h-12">
           <div className="dropdown dropdown-hover w-30 ">
             <button
               className="btn btn-ghost text-sm sm:text-base w-32 sm:w-48 "
