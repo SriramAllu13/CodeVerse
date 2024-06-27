@@ -20,11 +20,6 @@ const ProgrammingContent = ({
     }
   }, [response, value, selectedLanguage, setValue]);
 
-  const onMount = (editor) => {
-    editor.focus();
-    console.log(editor.getValue());
-  };
-
   return (
     <>
       <Editor
@@ -33,7 +28,6 @@ const ProgrammingContent = ({
         language={selectedLanguage}
         defaultValue={CODE_SNIPPETS[selectedLanguage]}
         value={value}
-        onMount={onMount}
         onChange={(value) => setValue(value)}
         options={{
           lineHeight: 24,
